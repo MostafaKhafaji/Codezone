@@ -1,0 +1,37 @@
+<div class="p-3 bg-white rounded">
+  <div class="d-flex align-items-center gap-2 mb-3">
+    <button class="btn btn-info text-white">
+      November <i class="bi bi-pencil-square me-1"></i>
+    </button>
+    <button class="btn btn-outline-secondary">
+      <i class="bi bi-pencil-square me-1"></i> Edit
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th *ngFor="let day of daysOfWeek" class="text-center py-3">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="height: 500px;">
+          <td *ngFor="let day of daysOfWeek" class="position-relative p-0" style="width: 14.28%; vertical-align: top;">
+            <div *ngFor="let appointment of getAppointmentsByDay(day)"
+                class="py-3 position-relative appointment-slot border-2 border-bottom px-2"
+                [style.background-color]="appointment.bgColor">
+              <div class="d-flex align-items-center">
+                <img src="assets/img/user.png" class="rounded-circle me-2" width="24" height="24" alt="doctor">
+                <div class="position-absolute top-0 end-0">
+                </div>
+              </div>
+              <div class="small">{{ appointment.time }}</div>
+              <div class="fw-medium">{{ appointment.doctor }} <span class="text-primary">{{ appointment.specialty }}</span></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

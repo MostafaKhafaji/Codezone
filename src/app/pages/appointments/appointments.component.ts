@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbDropdownModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { DoctorScheduleComponent } from './components/doctor-schedule/doctor-schedule.component';
 
 interface Appointment {
   patientName: string;
@@ -14,7 +15,7 @@ interface Appointment {
 
 @Component({
     selector: 'app-appointments',
-    imports: [CommonModule, NgbDropdownModule, NgbPaginationModule],
+    imports: [CommonModule, NgbDropdownModule, NgbPaginationModule, DoctorScheduleComponent],
     templateUrl: './appointments.component.html',
     styleUrl: './appointments.component.scss'
 })

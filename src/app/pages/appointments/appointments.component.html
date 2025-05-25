@@ -122,5 +122,8 @@
     </div>
   </div>
 
+  <div *ngIf="activeTab === 'doctorSchedule' || activeTab === 'doctorList'">
+    <app-doctor-schedule></app-doctor-schedule>
+  </div>
 
 </div>
