@@ -1,0 +1,10 @@
+@import "../../../assets/scss/variables.scss";
+
+
+.card{
+  transition:$transition;
+  &:hover{
+    background-color: $primary;
+    color: $white;
+  }
+}

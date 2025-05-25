@@ -1,0 +1,39 @@
+@import '../../../assets/scss/variables';
+
+.btn-info {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px 15px;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    border-color: $primary;
+  }
+}
+
+.upload-area {
+  border: 2px dashed $primary-50;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &.drag-over {
+    border-color: $primary;
+    background-color: rgba($primary, 0.05);
+  }
+
+}
+
+
+.btn-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

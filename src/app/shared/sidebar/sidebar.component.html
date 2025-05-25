@@ -1,0 +1,34 @@
+<div class="sidebar bg-white" [class.collapsed]="isSidebarCollapsed()"
+  [class.icon-only]="isIconOnly() && !isSidebarCollapsed()">
+  <div class="sidebar-header pt-3 mb-5">
+    <a routerLink="/dashboard" class="logo-container">
+      <img src="assets/img/logo.svg" alt="Logo" [class.small-logo]="isIconOnly()">
+    </a>
+  </div>
+  <ul class="nav flex-column gap-2 w-100">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+        <i class="bi bi-grid-1x2" [class.me-2]="!isIconOnly"></i>
+        <span class="nav-text" [class.d-none]="isIconOnly()">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/appointments" routerLinkActive="active">
+        <i class="bi bi-calendar2-check" [class.me-2]="!isIconOnly"></i>
+        <span class="nav-text" [class.d-none]="isIconOnly()">Appointments</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/patients" routerLinkActive="active">
+        <i class="bi bi-people" [class.me-2]="!isIconOnly"></i>
+        <span class="nav-text" [class.d-none]="isIconOnly()">Patients</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+        <i class="bi bi-gear" [class.me-2]="!isIconOnly"></i>
+        <span class="nav-text" [class.d-none]="isIconOnly()">Settings</span>
+      </a>
+    </li>
+  </ul>
+</div>

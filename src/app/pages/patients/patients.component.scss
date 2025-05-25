@@ -1,0 +1,98 @@
+@import '../../../assets/scss/variables';
+
+.btn-info {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn-outline-info {
+  color: $primary;
+  border-color: $primary;
+
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th {
+    font-weight: 500;
+    color: #6c757d;
+  }
+
+  td {
+    font-weight: 500;
+  }
+}
+
+
+.appointment-list {
+
+  .start-date,
+  .end-date {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .appointment-card {
+    margin-inline-start: 90px;
+  }
+
+  .start-date {
+    top: 30px;
+    left: 20px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 90px;
+      background-color: #999A9D;
+      left: 50px;
+      top: 40px;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $primary;
+      left: 50px;
+      top: 25px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .end-date {
+    top: 140px;
+    left: 20px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 200px;
+      background-color: #999A9D;
+      left: 50px;
+      top: 40px;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $primary;
+      left: 50px;
+      top: 25px;
+      transform: translateX(-50%);
+    }
+  }
+}

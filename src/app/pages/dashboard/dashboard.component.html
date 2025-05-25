@@ -1,0 +1,139 @@
+<div class="dashboard-page">
+  <div class="row">
+    <div class="col-12 col-lg-3 mb-4" *ngFor="let stat of stats">
+      <app-card-with-icon [icon]="stat.icon" [label]="stat.label" [number]="stat.number" [percentage]="stat.percentage"
+        [state]="stat.state">
+      </app-card-with-icon>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-7">
+      <div class="d-flex flex-column gap-4">
+        <div class="card p-3 border-0 shadow-sm">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <h5 class="mb-0 me-4">Appointments By Gender</h5>
+              <div class="d-flex align-items-center">
+                <span class="legend-indicator women me-2"></span>
+                <small class="me-4">Women 67%</small>
+                <span class="legend-indicator men me-2"></span>
+                <small>Men 33%</small>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-sm dropdown-toggle border border-primary primary" type="button">
+                Weekly
+              </button>
+            </div>
+          </div>
+          <div class="chart-container" style="height: 300px;">
+            <canvas id="appointmentsChart"></canvas>
+          </div>
+        </div>
+        <div class="card p-3 border-0 shadow-sm">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Doctors Schedule</h5>
+                <a href="#" class="text-decoration-none text-secondary">See More</a>
+              </div>
+
+            </div>
+            <div class="col-7">
+              <div class="calendar-section me-3 pe-3">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <button class="btn btn-link p-0 text-secondary">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                  <span class="text-info fw-medium">{{currentMonth}}</span>
+                  <button class="btn btn-link p-0 text-secondary">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3">
+                  <div *ngFor="let day of daysOfWeek" class="text-center text-secondary" style="width: 14.28%;">
+                    {{day}}
+                  </div>
+                </div>
+
+                <div class="calendar-grid">
+                  <div *ngFor="let week of calendarDates" class="d-flex justify-content-between mb-2">
+                    <div *ngFor="let day of week" class="text-center" style="width: 14.28%;">
+                      <button *ngIf="day !== 0"
+                        [class]="'btn btn-sm rounded ' + (day === selectedDate ? 'btn-info text-white' : '')"
+                        style="width: 36px; height: 36px;">
+                        {{day}}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="ms-2 d-flex flex-column justify-content-between">
+                <h6 class="text-info mb-4 text-center">Activity Details</h6>
+
+                <div class="activity-list">
+                  <div *ngFor="let activity of doctorActivities" class="d-flex align-items-center mb-4">
+                    <div class="me-3">
+                      <img [src]="activity.avatar" alt="Doctor" class="rounded-circle"
+                        style="width: 40px; height: 40px;">
+                    </div>
+                    <div>
+                      <div class="fw-medium">{{activity.name}}</div>
+                      <div class="d-flex align-items-center mt-1">
+                        <span class="me-1">{{activity.time}}</span>
+                        <span class="d-flex align-items-center">
+                          <span class="mx-2">•</span>
+                          <span [style.color]="activity.deptColor">{{activity.dept}}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-outline-info mt-2 w-50 align-self-center">
+                  <i class="bi bi-plus"></i> Add New
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-5 mt-md-0 mt-3">
+      <div class="card p-3 border-0 shadow-sm h-100">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">Top Patient Department</h5>
+          <a href="#" class="text-decoration-none text-secondary">See More</a>
+        </div>
+
+        <div class="position-relative d-flex justify-content-center">
+          <div class="chart-container" style="height: 330px; width: 220px;">
+            <canvas id="departmentChart"></canvas>
+          </div>
+          <img src="assets/icons/user.svg" class="position-absolute"
+            style="height: 120px; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;" />
+        </div>
+
+        <div class="department-list mt-4">
+          <div class="department-item d-flex justify-content-between align-items-center mb-3"
+            *ngFor="let dept of departments">
+            <div class="d-flex align-items-center">
+              <div class="department-icon rounded-circle d-flex align-items-center justify-content-center me-3"
+                [ngStyle]="{'background-color': dept.color}">
+                <i class="bi bi-{{dept.icon}} text-white"></i>
+              </div>
+              <div>
+                <div class="fw-medium">{{dept.name}}</div>
+                <small class="text-muted">{{dept.percentage}}%</small>
+              </div>
+            </div>
+            <i class="bi bi-chevron-right text-secondary"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

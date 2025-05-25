@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/variables.scss';
+@import "assets/scss/general.scss";
+@import 'assets/scss/utilities.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $gray-bg;
+  margin: 0;
+  padding: 0;
+}
+
+

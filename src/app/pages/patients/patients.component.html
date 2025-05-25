@@ -1,0 +1,252 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="d-flex align-items-center">
+      <a href="#" class="text-info me-2 text-decoration-none">Patients List</a>
+      <span class="text-muted mx-2">></span>
+      <span>Sarah Lawsson</span>
+    </div>
+    <div>
+      <button class="btn btn-outline-info me-2">
+        <i class="bi bi-printer"></i>
+      </button>
+      <button class="btn btn-info text-white">
+        <i class="bi bi-pencil-square me-1"></i> Edit
+      </button>
+    </div>
+  </div>
+  <div class="row g-4">
+    <div class="col-lg-8 card border-0 shadow-sm">
+      <div class="card-body p-0">
+        <div class="row g-0">
+          <div class="col-md-3 border-end text-center py-4">
+            <div class="position-relative d-inline-block mb-3">
+              <img src="assets/icons/user.svg" alt="Sarah Lawsson" class="rounded-circle patient-avatar">
+            </div>
+            <h5 class="mb-1">{{ patient.name }}</h5>
+            <p class="text-muted small mb-3">{{ patient.email }}</p>
+
+            <div class="d-flex justify-content-around">
+              <div class="text-center px-3">
+                <h4 class="text-info mb-0">{{ patient.pastAppointments }}</h4>
+                <small class="text-muted">Past</small>
+              </div>
+              <div class="text-center px-3">
+                <h4 class="text-info mb-0">{{ patient.upcomingAppointments }}</h4>
+                <small class="text-muted">Upcoming</small>
+              </div>
+            </div>
+
+            <button class="btn bg-primary text-white px-5 mt-3">
+              Send Message
+            </button>
+          </div>
+          <div class="col-md-9 py-2 px-5">
+            <div class="row h-100">
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Gender</label>
+                <div class="fs-6 fw-medium">{{ patient.gender }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Birthday</label>
+                <div class="fs-6 fw-medium">{{ patient.birthday }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Phone Number</label>
+                <div class="fs-6 fw-medium">{{ patient.phoneNumber }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Insurance</label>
+                <div class="fs-6 fw-medium">{{ patient.insurance }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Register Date</label>
+                <div class="fs-6 fw-medium">{{ patient.registerDate }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Marital Status</label>
+                <div class="fs-6 fw-medium">{{ patient.maritalStatus }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Address</label>
+                <div class="fs-6 fw-medium">{{ patient.address }}</div>
+              </div>
+
+              <div class="col-md-4 col-6 d-flex flex-column gap-2 justify-content-center">
+                <label class="text-muted small d-block">Postal Code</label>
+                <div class="fs-6 fw-medium">{{ patient.postalCode }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="card-title mb-0">Documents</h5>
+            <button class="btn btn-sm primary font-weight-500" (click)="openFileUploadModal()">
+              <i class="bi bi-plus-lg me-1"></i> Add Files
+            </button>
+          </div>
+          <div class="document-list">
+            <div class="document-item d-flex justify-content-between align-items-center mb-3 p-2 border-bottom"
+              *ngFor="let doc of documents">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-{{ doc.icon }} me-3"></i>
+                <span>{{ doc.name }}</span>
+              </div>
+              <div class="document-actions">
+                <button class="btn btn-sm btn-link p-0 me-2">
+                  <i class="bi bi-download text-muted"></i>
+                </button>
+                <button class="btn btn-sm btn-link p-0">
+                  <i class="bi bi-three-dots-vertical text-muted"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <a href="#" class="text-decoration-none text-secondary">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-8 card border-0 shadow-sm">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <div class="nav-item-container d-flex bg-grey p-1 rounded">
+              <a href="#" class="nav-link px-4 py-2  me-2 primary bg-white">Upcoming Appointments</a>
+              <a href="#" class="nav-link px-4 py-2 rounded-pill text-secondary">Past Appointments</a>
+            </div>
+          </div>
+          <button class="btn primary rounded-3 px-3">
+            <i class="bi bi-plus-lg me-1"></i>
+            <span>Add Appointment</span>
+          </button>
+        </div>
+        <div class="appointment-list bg-grey rounded position-relative py-3">
+          <div class="start-date">
+            <span class="fw-bold">23</span>
+            <span class="small text-muted">MON</span>
+          </div>
+          <div class="end-date">
+            <span class="fw-bold">19</span>
+            <span class="small text-muted">THU</span>
+          </div>
+          <div *ngFor="let appointment of appointments" class="appointment-item mb-2">
+            <div class="appointment-card d-flex align-items-center bg-white me-3 rounded py-1">
+              <div class="appointment-details p-3 rounded w-100 bg-light bg-opacity-50">
+                <div class="row">
+                  <div class="col">
+                    <div class="text-muted small mb-1">Date</div>
+                    <div>{{ appointment.date }}</div>
+                  </div>
+                  <div class="col">
+                    <div class="text-muted small mb-1">Type</div>
+                    <div>{{ appointment.type }}</div>
+                  </div>
+                  <div class="col">
+                    <div class="text-muted small mb-1">Specialist</div>
+                    <div>{{ appointment.specialist }}</div>
+                  </div>
+                  <div class="col-auto ms-auto d-flex align-items-center">
+                    <span class="badge rounded-pill px-3 py-2 me-3" [ngClass]="{
+                          'bg-success-subtle text-success': appointment.status === 'Confirmed',
+                          'bg-grey text-grey': appointment.status === 'Canceled',
+                          'bg-white': appointment.status === 'Pending'
+                        }">
+                      {{ appointment.status === 'Pending' ? '' : appointment.status }}
+                      <span *ngIf="appointment.status === 'Pending'" class="d-inline-flex gap-2">
+                        <button class="btn btn-sm p-0 me-1">
+                          <img src="assets/icons/cross.svg" />
+                        </button>
+                        <button class="btn btn-sm p-0">
+                          <span
+                            class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 24px; height: 24px">
+                            <img src="assets/icons/wrong.svg" />
+                          </span>
+                        </button>
+                      </span>
+                    </span>
+                    <div class="dropdown">
+                      <button class="btn btn-link text-muted" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-three-dots-vertical"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mt-lg-0 mt-3">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="fw-bold mb-0">Prescription</h5> <button (click)="openPrescriptionModal()"
+              class="btn primary border-0 d-flex align-items-center">
+              <i class="bi bi-plus-lg text-info me-1"></i>
+              <span>Add Prescription</span>
+            </button>
+          </div>
+          <div class="mb-4">
+            <label for="symptoms" class="form-label mb-2">Symptoms</label>
+            <input class="form-control border bg-light bg-opacity-50" id="symptoms" placeholder="write symptoms here..."
+              [(ngModel)]="prescriptionSymptoms" />
+          </div>
+          <div class="mb-4">
+            <label for="prescription" class="form-label mb-2">Prescription</label>
+            <input class="form-control border bg-light bg-opacity-50" id="prescription"
+              placeholder="write Prescription here..." [(ngModel)]="prescriptionDetails" />
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+            <span class="text-muted">{{ prescriptionDate }}</span>
+            <button class="btn btn-info text-white px-5 py-2 rounded-3">Save</button>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="fw-bold mb-0">Medical History</h5>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-muted small">Date</th>
+                  <th class="text-muted small">Symptoms</th>
+                  <th class="text-muted small">Specialty</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let record of medicalHistory" class="border-bottom">
+                  <td class="py-3">{{ record.date }}</td>
+                  <td class="py-3">{{ record.symptoms }}</td>
+                  <td class="py-3">{{ record.specialty }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center mt-4">
+            <a href="#" class="text-decoration-none text-secondary">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

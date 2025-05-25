@@ -1,0 +1,126 @@
+<div class="container-fluid py-4">
+  <div class="d-flex d-flex align-items-center justify-content-between bg-white p-3 rounded mb-3">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'request'" (click)="setActiveTab('request')">
+          Appointments Request
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'list'" (click)="setActiveTab('list')">
+          Appointments List
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'doctorList'" (click)="setActiveTab('doctorList')">
+          Doctor List
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'doctorSchedule'" (click)="setActiveTab('doctorSchedule')">
+          Doctor Schedule
+        </a>
+      </li>
+    </ul>
+    <div class="d-flex align-items-center gap-2">
+      <div class="dropdown" ngbDropdown>
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" ngbDropdownToggle>
+          Sort by
+        </button>
+        <ul ngbDropdownMenu aria-labelledby="sortDropdown">
+          <li><button ngbDropdownItem>Name</button></li>
+          <li><button ngbDropdownItem>Date</button></li>
+          <li><button ngbDropdownItem>Department</button></li>
+        </ul>
+      </div>
+      <button class="btn btn-info text-white">
+        <i class="bi bi-plus"></i> Add New
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="activeTab === 'request'" class="table-responsive p-3 bg-white">
+    <table class="table table-hover table-rounded">
+      <thead class="table-info">
+        <tr>
+          <th>Patient Name</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Doctor</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th class="d-flex justify-content-center">Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.patientName }}</td>
+          <td>{{ appointment.gender }}</td>
+          <td>{{ appointment.department }}</td>
+          <td>{{ appointment.doctor }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>
+            <span class="d-inline-flex gap-3">
+              <button class="btn btn-sm p-0 me-1">
+                <img width="30px" height="30px" src="assets/icons/cross.svg" />
+              </button>
+              <button class="btn btn-sm p-0">
+                <span class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 24px; height: 24px">
+                  <img width="30px" height="30px" src="assets/icons/wrong.svg" />
+                </span>
+              </button>
+            </span>
+          </td>
+          <td>
+            <i class="bi bi-three-dots-vertical"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center mt-4">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+    </div>
+  </div>
+
+  <div *ngIf="activeTab === 'list'" class="table-responsive p-3 bg-white">
+    <table class="table table-hover table-rounded">
+      <thead class="table-info">
+        <tr>
+          <th>Patient Name</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Doctor</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th class="d-flex justify-content-center">Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.patientName }}</td>
+          <td>{{ appointment.gender }}</td>
+          <td>{{ appointment.department }}</td>
+          <td>{{ appointment.doctor }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>
+            <span [ngClass]="appointment.status === 'Cancelled' ? 'badge rounded-pill bg-danger-subtle text-danger p-2' : 'badge rounded-pill bg-success-subtle text-success p-2'">{{appointment.status}}</span>
+          </td>
+          <td>
+            <i class="bi bi-three-dots-vertical"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center mt-4">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+    </div>
+  </div>
+
+
+</div>

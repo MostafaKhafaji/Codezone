@@ -1,0 +1,52 @@
+<div class="modal-header border-0">
+  <div class="text-left w-100 ps-4 pt-3">
+    <h4 class="modal-title fw-boldr">{{ title }}</h4>
+    <p class="text-muted small mb-0">Attach the file below</p>
+  </div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="dismiss()"></button>
+</div>
+<div class="modal-body p-4">
+  <div
+    class="upload-area"
+    [class.drag-over]="isDragOver"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)">
+
+    <div class="upload-icon">
+      <img class="mb-3" src="assets/icons/file.svg" />
+    </div>
+
+    <div class="upload-text">
+      <h6 class="mb-2 fw-bold">Drag file(s) here to upload</h6>
+      <p>Alternatively you can select the file by</p>
+      <div class="mt-2">
+        <label for="fileInput" class="primary">Clicking here</label>
+        <input
+          type="file"
+          id="fileInput"
+          class="visually-hidden"
+          (change)="onFileSelected($event)">
+      </div>
+    </div>
+
+    <div *ngIf="selectedFile" class="selected-file mt-3">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-file-earmark me-2"></i>
+        <span>{{ selectedFile.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer border-0 pb-4 px-4">
+  <button type="button" class="btn btn-outline-secondary px-4 py-2" (click)="dismiss()">
+    Cancel
+  </button>
+  <button
+    type="button"
+    class="btn btn-info text-white px-5 py-2"
+    [disabled]="!selectedFile"
+    (click)="upload()">
+    Upload File
+  </button>
+</div>
