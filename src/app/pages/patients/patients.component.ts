@@ -27,11 +27,10 @@ interface Appointment {
 }
 
 @Component({
-  selector: 'app-patients',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './patients.component.html',
-  styleUrl: './patients.component.scss'
+    selector: 'app-patients',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './patients.component.html',
+    styleUrl: './patients.component.scss'
 })
 export class PatientsComponent {  constructor(private modalService: NgbModal) {}
 

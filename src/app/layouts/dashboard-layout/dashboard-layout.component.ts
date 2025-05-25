@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-dashboard-layout',
-  standalone: true,
-  imports: [RouterModule, NgbCollapseModule, CommonModule, SidebarComponent],
-  templateUrl: './dashboard-layout.component.html',
-  styleUrl: './dashboard-layout.component.scss'
+    selector: 'app-dashboard-layout',
+    imports: [RouterModule, NgbCollapseModule, CommonModule, SidebarComponent],
+    templateUrl: './dashboard-layout.component.html',
+    styleUrl: './dashboard-layout.component.scss'
 })
 export class DashboardLayoutComponent implements OnInit {
   isMenuCollapsed = true;

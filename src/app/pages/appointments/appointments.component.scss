@@ -1,4 +1,4 @@
-@import '../../../assets/scss/variables';
+@use '../../../assets/scss/variables'  as *;
 
 .nav-tabs {
   border-bottom: 2px solid #e9ecef;

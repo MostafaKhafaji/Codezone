@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-prescription-modal',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './prescription-modal.component.html',
-  styleUrl: './prescription-modal.component.scss'
+    selector: 'app-prescription-modal',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './prescription-modal.component.html',
+    styleUrl: './prescription-modal.component.scss'
 })
 export class PrescriptionModalComponent {
   @Input() patient: any;

@@ -8,11 +8,10 @@ import { FormsModule } from '@angular/forms';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [CardWithIconComponent, CommonModule, NgbDatepickerModule, FormsModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+    selector: 'app-dashboard',
+    imports: [CardWithIconComponent, CommonModule, NgbDatepickerModule, FormsModule],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   currentMonth: string = 'December 2024';

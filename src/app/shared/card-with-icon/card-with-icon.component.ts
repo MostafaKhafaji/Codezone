@@ -2,11 +2,10 @@ import { NgClass } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 
 @Component({
-  selector: 'app-card-with-icon',
-  standalone: true,
-  imports: [NgClass],
-  templateUrl: './card-with-icon.component.html',
-  styleUrl: './card-with-icon.component.scss'
+    selector: 'app-card-with-icon',
+    imports: [NgClass],
+    templateUrl: './card-with-icon.component.html',
+    styleUrl: './card-with-icon.component.scss'
 })
 export class CardWithIconComponent {
   icon = input<string>('');

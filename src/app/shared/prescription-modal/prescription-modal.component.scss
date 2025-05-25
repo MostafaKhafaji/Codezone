@@ -1,4 +1,4 @@
-@import '../../../assets/scss/variables';
+@use '../../../assets/scss/variables' as *;
 
 .form-control {
   border-radius: 8px;

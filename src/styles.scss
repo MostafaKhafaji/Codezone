@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/scss/variables.scss';
-@import "assets/scss/general.scss";
-@import 'assets/scss/utilities.scss';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+@use 'assets/scss/variables.scss' as *;
+@use "assets/scss/general.scss"  as *;
+@use 'assets/scss/utilities.scss'  as *;
+@use 'bootstrap-icons/font/bootstrap-icons.css'  as *;
 
 /* Global styles */
 body {

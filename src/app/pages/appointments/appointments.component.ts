@@ -13,11 +13,10 @@ interface Appointment {
 }
 
 @Component({
-  selector: 'app-appointments',
-  standalone: true,
-  imports: [CommonModule, NgbDropdownModule, NgbPaginationModule],
-  templateUrl: './appointments.component.html',
-  styleUrl: './appointments.component.scss'
+    selector: 'app-appointments',
+    imports: [CommonModule, NgbDropdownModule, NgbPaginationModule],
+    templateUrl: './appointments.component.html',
+    styleUrl: './appointments.component.scss'
 })
 export class AppointmentsComponent {
   activeTab: string = 'request';

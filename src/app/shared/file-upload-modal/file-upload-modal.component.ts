@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-file-upload-modal',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './file-upload-modal.component.html',
-  styleUrl: './file-upload-modal.component.scss'
+    selector: 'app-file-upload-modal',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './file-upload-modal.component.html',
+    styleUrl: './file-upload-modal.component.scss'
 })
 export class FileUploadModalComponent {
   @Input() title: string = 'Upload File';
