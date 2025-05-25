@@ -2,9 +2,16 @@
 
 
 .card{
+  background-image: url("../../../assets/icons/heart.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
   transition:$transition;
   &:hover{
     background-color: $primary;
     color: $white;
   }
+
+.text-success{
+  color: #08F66D !important;
+}
 }

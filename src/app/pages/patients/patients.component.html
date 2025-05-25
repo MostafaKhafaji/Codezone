@@ -125,7 +125,7 @@
       <div class="card-body p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <div>
-            <div class="nav-item-container d-flex bg-grey p-1 rounded">
+            <div class="nav-item-container d-flex bg-gray p-1 rounded">
               <a href="#" class="nav-link px-4 py-2  me-2 primary bg-white">Upcoming Appointments</a>
               <a href="#" class="nav-link px-4 py-2 rounded-pill text-secondary">Past Appointments</a>
             </div>
@@ -135,7 +135,7 @@
             <span>Add Appointment</span>
           </button>
         </div>
-        <div class="appointment-list bg-grey rounded position-relative py-3">
+        <div class="appointment-list bg-gray rounded position-relative py-3">
           <div class="start-date">
             <span class="fw-bold">23</span>
             <span class="small text-muted">MON</span>
@@ -163,7 +163,7 @@
                   <div class="col-auto ms-auto d-flex align-items-center">
                     <span class="badge rounded-pill px-3 py-2 me-3" [ngClass]="{
                           'bg-success-subtle text-success': appointment.status === 'Confirmed',
-                          'bg-grey text-grey': appointment.status === 'Canceled',
+                          'bg-gray text-gray': appointment.status === 'Canceled',
                           'bg-white': appointment.status === 'Pending'
                         }">
                       {{ appointment.status === 'Pending' ? '' : appointment.status }}

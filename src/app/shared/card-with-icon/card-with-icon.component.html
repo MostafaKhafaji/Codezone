@@ -9,7 +9,7 @@
       <h5 class="mb-1">{{number()}}</h5>
       <div class="d-flex justify-between align-items-center gap-2">
         <span>Last week</span>
-        <span [ngClass]="state() === 'up' ? 'text-success' : 'text-danger'">+&nbsp;{{percentage()}}%<i class="bi bi" [ngClass]="state() === 'up' ? 'bi-arrow-up' : 'bi-arrow-down'"></i></span>
+        <span class="small" [ngClass]="state() === 'up' ? 'text-success' : 'text-danger'">+&nbsp;{{percentage()}}%<i class="bi bi" [ngClass]="state() === 'up' ? 'bi-arrow-up' : 'bi-arrow-down'"></i></span>
       </div>
     </div>
   </div>
